@@ -22,7 +22,7 @@ namespace YouTubeEgitim
             sayilar2[1] = 1000;
             Console.WriteLine(sayilar1[1]);
 
-            CreditManageer creditManageer = new CreditManageer();
+            CreditManager creditManager = new CreditManager();
 
             creditManageer.Save();
             creditManageer.Calculate();
@@ -52,7 +52,7 @@ namespace YouTubeEgitim
         }
     }
 
-    class CreditManageer
+    class CreditManager
     {
         public void Calculate()
         {
@@ -121,11 +121,11 @@ namespace YouTubeEgitim
     class CustomerManager
     {
         private Customer _customer;
-        private ICreditManager _creditManageer;
-        public CustomerManager(Customer customer, ICreditManager creditManageer)
+        private ICreditManager _creditManager;
+        public CustomerManager(Customer customer, ICreditManager creditManager)
         {
             _customer = customer;
-            _creditManageer = creditManageer;
+            _creditManager = creditManageer;
         }
         public void Save()
         {
@@ -138,7 +138,7 @@ namespace YouTubeEgitim
 
         public void GiveCredit()
         {
-            _creditManageer.Calculate();
+            _creditManager.Calculate();
             Console.WriteLine("Kredi verildi");
         }
     }
